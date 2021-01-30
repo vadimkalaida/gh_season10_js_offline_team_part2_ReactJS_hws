@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
-import Clock from 'react-live-clock';
+import Moment from 'react-moment';
 import { MainTitle, TimeZonesBlock, TimeZonesBlockContainer, TimeZonesItem, TimeBlock, TimeButton } from "./elements";
 
 
@@ -8,12 +8,14 @@ const LiveClock = () => {
   const [ timeZonesArray, setTimeZonesArray ] = useState([]);
   const [ timeZoneName, setTimeZoneName ] = useState(timeZonesArray[0]);
   const [ typeOfClock, setTypeOfClock ] = useState('h:mm:ss a');
-  const [ counter, setCounter ] = useState(1);
 
   useEffect(() => {
     setTimeZonesArray(moment.tz.names());
-
   }, []);
+
+  const handleGetTimeZoneName = (item) => {
+    setTimeZoneName(item);
+  };
 
   const getTimeZonesArray = () => {
     return(
@@ -23,10 +25,6 @@ const LiveClock = () => {
         </TimeZonesItem>) }
       </>
     );
-  };
-
-  const handleGetTimeZoneName = (item) => {
-    setTimeZoneName(item);
   };
 
   const handleChangeTypeOfClock = () => {
@@ -49,7 +47,7 @@ const LiveClock = () => {
         </TimeZonesBlockContainer>
       </TimeZonesBlock>
       <TimeBlock>
-        <Clock format={typeOfClock} ticking={true} timezone={timeZoneName}/>
+        <Moment format={typeOfClock} interval={250} tz={timeZoneName}/>
         <TimeButton onClick={() => handleChangeTypeOfClock()}>Type of Clock</TimeButton>
       </TimeBlock>
 
