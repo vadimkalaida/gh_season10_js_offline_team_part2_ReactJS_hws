@@ -33,7 +33,19 @@ export const TimeZonesItem = styled.div`
   transition: .2s;
   font-size: 20px;
   &:hover {
-    background: #fff;
+    background: linear-gradient(90deg, #AA1F25, #330A0B);
+    color: #D3A15B;
+    font-weight: 800;
+    text-shadow: 2px 2px 5px #000; 
+  }
+  &:active {
+    background: linear-gradient(90deg, #850000, #330A0B);
+    color: #D3A15B;
+    font-weight: 800;
+    text-shadow: 2px 2px 5px #000; 
+  }
+  &.active {
+    background: linear-gradient(90deg, #AA1F25, #330A0B);
   }
 `;
 
