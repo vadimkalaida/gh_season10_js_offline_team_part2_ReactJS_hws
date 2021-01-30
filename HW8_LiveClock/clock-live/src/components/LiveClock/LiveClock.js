@@ -6,7 +6,7 @@ import { MainTitle, TimeZonesBlock, TimeZonesBlockContainer, TimeZonesItem, Time
 
 const LiveClock = () => {
   const [ timeZonesArray, setTimeZonesArray ] = useState([]);
-  const [ timeZoneName, setTimeZoneName ] = useState(timeZonesArray[0]);
+  const [ timeZoneName, setTimeZoneName ] = useState(timeZonesArray[447]);
   const [ typeOfClock, setTypeOfClock ] = useState('h:mm:ss a');
 
   useEffect(() => {
